@@ -1,0 +1,10 @@
+set imap_user = "justin@earthsense.co"                       
+source "gpg -d ~/.mutt/passwords_earth.gpg |"                         
+set smtp_url = "smtps://justin@earthsense.co@smtp.zoho.com:465"
+set from = "justin@earthsense.co"
+set realname="Justin Wasserman"
+set folder = "imaps://imappro.zoho.com:993"
+set spoolfile = "+INBOX"                                      
+set postponed = "+[Earth]/Drafts"                             
+set header_cache=~/.mutt/earthcache
+set certificate_file=~/.mutt/earthcertificates

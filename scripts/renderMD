@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+file=$1
+filename="${file%.*}"
+mkdir -p ./pdfs/
+pandoc -s -o ./pdfs/$filename.pdf $filename.md
+
