@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+DOCUMENT=$1
+lpstat -p | awk '{print $2}'
+read -r -p "Choose a Printer: " print
+lp -d "$print" "$DOCUMENT"
+
+
+
+
+

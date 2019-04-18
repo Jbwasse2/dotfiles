@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+FILE=$1
+filename="${FILE%.*}"
+python ~/.scripts/python/compile_refs.py "$filename"

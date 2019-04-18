@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Network Manager Mommand Line Interface DEvice WIFI
+nmcli dev wifi
+
+read -r -p "SSID: " SSID
+echo $SSID
+
+read -r -p "Password: " pass
+
+nmcli device wifi connect "$SSID" password "$pass"
+
+
