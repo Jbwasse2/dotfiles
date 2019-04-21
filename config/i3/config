@@ -22,10 +22,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show run
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -54,7 +54,7 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split v;exec notify-send 'tile horizontally'
+bindsym $mod+c split v;exec notify-send 'tile horizontally'
 bindsym $mod+v split h;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
@@ -287,7 +287,7 @@ assign [class="Slack"] $ws8
 assign [class="Spotify"] $ws8
 
 # Custom Scripts
-exec /home/justin/Pictures/shuffle.sh
+exec ~/.scripts/shuffleBGLoop
 # Start Spotify
 exec /home/justin/spotify/spotify
 # Start Slack

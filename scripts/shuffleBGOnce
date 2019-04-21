@@ -1,0 +1,3 @@
+#!/bin/bash
+WALLPAPER_DIR="/home/justin/Pictures/wallpapers-master/"
+feh --randomize --bg-fill $WALLPAPER_DIR/*

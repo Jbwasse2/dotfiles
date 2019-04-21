@@ -4,4 +4,4 @@ CURR=${CURR:8}
 CURR=${CURR::-1}
 rm $CURR
 echo "$CURR"
-./shuffle.sh
+./shuffleBGOnce
