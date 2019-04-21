@@ -6,11 +6,13 @@ If I do not specify an input, there isn't one.
 
 ## Description
 
-ln - Here I keep my soft links, I use these to allow me to access directories without remembering where things actually are. In order to make this work add "export CDPATH=/Path/To/This/Folder/ln/"
+ln - Here I keep my soft links, I use these to allow me to access directories without remembering where things actually are. In order to make this work add "export CDPATH=/Path/To/This/Folder/ln/" to your bashrc file.
 
 python - various supporting python scripts. Will get its own README.md when needed.
 
 ### Wallpapers/Background
+My wallpapers can be downloaded here- https://drive.google.com/file/d/1P98qBWeYywfP-zrNp2Lqhhn62wzdiB6N/view?usp=sharing
+
 shuffleBGOnce - Changes the background once, does not loop.
 
 shuffleBGLoop - Changes the background every 2 hours and when it is run
