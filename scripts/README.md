@@ -19,6 +19,8 @@ deleteAndShuffleBG - Deletes the current background from the wallpaper folder an
 
 ### Quality of Life
 
+getWeather - Gets the weather. Automatically gets your city by through wifi connection information. Use -v flag to get weather for today and next few days, use -i just to get weather right now in fahrenheit.
+
 connectToWifi - Interactive way to connect to the wifi
 
 printIRL - send a file to the printer through the terminal. Input should be file to print

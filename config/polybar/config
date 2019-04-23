@@ -443,23 +443,26 @@ date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
 
 
 [module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 65
+type = custom/script
 
-format = <ramp> <label>
+exec = /home/justin/.scripts/getWeather -i
+;type = internal/temperature
+;thermal-zone = 0
+;warn-temperature = 65
+
+;format = <ramp> <label>
 ;format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
+;format-warn = <ramp> <label-warn>
 ;format-warn-underline = ${self.format-underline}
 
-label = %temperature-f%
-label-warn = HOT! %temperature-f%
-label-warn-foreground = #f00
+;label = %temperature-f%
+;label-warn = HOT! %temperature-f%
+;label-warn-foreground = #f00
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = #66
+;ramp-0 = 
+;ramp-1 = 
+;ramp-2 = 
+;ramp-foreground = #66
 
 [module/xkeyboard]
 type=internal/xkeyboard

@@ -1,0 +1,19 @@
+#!/bin/bash
+#Get name of city I am currently in
+CITY=$(curl -s https://ipinfo.io/ | grep 'city' | awk '{print $2}' | grep -o -E '[Aa-Zz]+')
+if [ $# -ne 1 ]; then
+	#Get weather
+	#Normal use will just have todays weather printed to the terminal
+	curl -s wttr.in/"$CITY"?T | head -17
+fi
+
+#Use flag so that way we can deal with the i3 status bar, should just return lower bound on weather
+#I call it i flag for i3
+if [ "$1" == "-i" ]; then
+    TEMP=$(curl -s wttr.in/"$CITY"?T | head -4 | grep -o -E '[0-9]+' | sed -n 2p) 
+    echo "$TEMP°F"
+fi
+#Use verbose flag to print out everything
+if [ "$1" == "-v" ]; then
+	curl -s wttr.in/"$CITY"?T
+fi

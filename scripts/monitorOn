@@ -1,3 +1,18 @@
 #!/usr/bin/env bash
-xrandr --output DP-1-1 --mode 1920x1080 --panning 1920x1080 --pos 1920x0
+
+
+#Assuming the main monitor is 1920x1080, change as neccessary
+MAIN_SCREEN_RES=1920
+
+#Get resolution of monitor
+#Piping works as follows
+#For Resolution -----
+#Get all video outputs and size -> Get names of video outputs and the line after them if they have "connected" in them -> Remove the 2 lines that have "eDP" in it (This is the main monitor) -> Get the size entry of the external monitor -> regex on numbers -> Get 1st/2nd entry
+#For Name -----
+#Get all video outputs and size -> Get names of video outputs with "Connecte in them" -> Ignore any lines with "eDP" in them -> Get name of monitor
+RESOLUTION1="$(xrandr | grep -w -A1 'connected' | sed '/eDP/,+2d' | sed -n 2p | grep -o -E '[0-9]+' | sed -n 1p)"
+RESOLUTION2="$(xrandr | grep -w -A1 'connected' | sed '/eDP/,+2d' | sed -n 2p | grep -o -E '[0-9]+' | sed -n 2p)"
+MONITOR_NAME="$(xrandr | grep -w 'connected' | grep -v 'eDP' | awk '{print $1}')"
+xrandr --output $MONITOR_NAME --mode "$RESOLUTION1"x"$RESOLUTION2" --pos 1920x0
+
 
