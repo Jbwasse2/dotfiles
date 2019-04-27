@@ -149,21 +149,22 @@ endsnippet
 snippet figure
 \begin{figure}
     \centering
-    \includegraphics{}
-    \caption{Caption}
-    \label{fig:my_label}
+    \includegraphics{$1}
+    \caption{$2}
+    \label{fig:$3}
 \end{figure}
+$0
 endsnippet
 
 snippet table
 \begin{table}[]
-    \centering
+    \centering$0
     \begin{tabular}{c|c}
          &  \\
          & 
     \end{tabular}
-    \caption{Caption}
-    \label{tab:my_label}
+    \caption{$1}
+    \label{tab:$2}
 \end{table}
 endsnippet
 

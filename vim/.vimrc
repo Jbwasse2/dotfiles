@@ -120,3 +120,4 @@ map <leader>a :!setsid renderMD % &<CR>
 nnoremap <buffer> <F9> :w<CR>:!clear;python %<CR>
 nnoremap <buffer> <F2> :w<CR>:!clear;compileLaTeX main.tex<CR>
 noremap <leader>y "+y
+nnoremap <leader>f :read !getImage<CR>

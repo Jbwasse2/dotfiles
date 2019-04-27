@@ -4,7 +4,7 @@
 cp -rf ~/.scripts/* ./scripts/
 
 #Copy over vim stuff
-cp -rf ~/.vim/* ./vim/*
+cp -rf ~/.vim/UltiSnips ./vim/*
 cp ~/.vimrc ./vim/.vimrc
 
 #Copy over config files

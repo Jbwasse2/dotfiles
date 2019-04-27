@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+if [ $# -eq 0 ]
+  then
+    FIGURES=$(python ~/.scripts/python/getFigure.py 2>&1 )
+else
+  DIR=$1
+  FIGURES=$(python ~/.scripts/python/getFigure.py "$DIR" 2>&1)
+fi
+GLOBAL_FIGURES=$(echo "$FIGURES" | sed 's/[][]//g' | sed 's/, /\n/g' | tr -d "'")
+CHOSEN_FIGURE=$(echo "$GLOBAL_FIGURES" | sed "s/.*\///" | sort -u |dmenu -p "Choose an image" -l 15)
+echo "$GLOBAL_FIGURES" | grep "$CHOSEN_FIGURE"
+
