@@ -53,7 +53,10 @@ untargz - like unzip but for targz
 
 ### Helper Scripts
 
+getImage - returns the location of an image in an interactive menu. Can give input of directory, otherwise will use directory it is called in
+
 prompt - Creates a yes/no prompt with dmenu. First argument should be what the user is prompted with and second is what happens if the user selects "yes". For example I use this for shutting down my computer. "bindsym $mod+Shift+e exec ~/.scripts/prompt 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' 'i3-msg exit'"
+
 
 
 
