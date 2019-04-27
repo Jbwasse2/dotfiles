@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 DOCUMENT=$1
-lpstat -p | awk '{print $2}'
-read -r -p "Choose a Printer: " print
+print="$(lpstat -p | awk '{print $2}'| dmenu -l 15 -p "Choose a Printer")"
 lp -d "$print" "$DOCUMENT"
 
 

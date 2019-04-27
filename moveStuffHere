@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#Copy scripts over
+cp -rf ~/.scripts/* ./scripts/
+
+#Copy over vim stuff
+cp -rf ~/.vim/* ./vim/*
+cp ~/.vimrc ./vim/.vimrc
+
+#Copy over config files
+cp ~/.config/i3/* ./config/i3/
+cp ~/.config/mutt/muttrc ./config/mutt/muttrc
+cp ~/.config/polybar/* ./config/polybar/
+cp -rf ~/.config/sxiv/* ./config/sxiv/

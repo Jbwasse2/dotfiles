@@ -168,7 +168,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/.scripts/prompt 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' 'i3-msg exit'
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -231,8 +231,8 @@ client.placeholder #b0c4bb #2f2f38 #b0c4bb #688486 #688486
 client.background #2f2f38
 
 # Gaps
-gaps inner 10
-gaps outer -4
+gaps inner 50
+gaps outer 20
 
 smart_gaps on
 
@@ -296,4 +296,4 @@ exec /usr/bin/slack
 exec /usr/bin/blueman-manager'
 exec touchpad-indicator
 
-
+exec /usr/bin/indicator-sound-switcher

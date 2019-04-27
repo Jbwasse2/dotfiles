@@ -1,3 +1,18 @@
 #!/usr/bin/env bash
-xrandr --output DP-1-1 --off
+#xrandr --output DP-1-1 --off
+
+MONITORS=$(xrandr | grep 'connected' | sed '/eDP/d' | awk '{print $1}')
+#If no flag is given, just turn off any external monitors
+if [ $# -ne 1 ]; then
+    while IFS= read -r line ; do xrandr --output $line --off; done <<< "$MONITORS"
+fi
+
+#If c flag or choose given, we will give the user a choice to chose what monitor to shut off
+if [ "$1" == "-c" ] || [ "$1" == "--choose" ]; then
+    echo "$MONITORS"
+    read -r -p "Monitor: " SELECTED
+    xrandr --output "$SELECTED" --off
+fi
+
+
 

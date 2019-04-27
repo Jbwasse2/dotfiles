@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 #Network Manager Mommand Line Interface DEvice WIFI
-nmcli dev wifi
+nmcli dev wifi | head -15
 
-read -r -p "SSID: " SSID
-echo $SSID
+SSID=$(sudo iwlist wlp4s0 scan | grep SSID | sed 's/[^"]*"\([^"]*\)".*/\1/' | grep . | grep -v "x00"| sort -u | dmenu -l 15)
 
-read -r -p "Password: " pass
-
-nmcli device wifi connect "$SSID" password "$pass"
+nmcli device wifi connect "$SSID"
 
 

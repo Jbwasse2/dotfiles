@@ -40,7 +40,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'francoiscabrol/ranger.vim'
 Plugin 'lervag/vimtex'
 let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
+"let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
@@ -50,8 +50,22 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
-"Plugin 'xuhdev/vim-latex-live-preview'
-"let g:livepreview_previewer = 'zathura'
+"Show diff between file and swap file option
+Plugin 'chrisbra/Recover.vim'
+
+" Autocomplete in python
+"Plugin 'davidhalter/jedi-vim'
+
+
+Plugin 'xuhdev/vim-latex-live-preview'
+let g:livepreview_previewer = 'zathura'
+let g:livepreview_engine = 'pdflatex'
+map <leader>l : LLPStartPreview<CR>
+nnoremap <C-Left> :tabprevious<CR>                                                                            
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-j> :tabprevious<CR>                                                                            
+nnoremap <C-k> :tabnext<CR>
+
 let g:ranger_map_keys = 0
 map <leader>r : RangerNewTab<CR>
 call vundle#end()            " required
@@ -99,6 +113,10 @@ set foldmethod=indent   " fold based on indent level
 filetype plugin indent on
 set statusline+=%F    "Show file name
 set spell spelllang=en_us "Set spell check to english
+set autoread
 
 " Toggle auto compiling of md
 map <leader>a :!setsid renderMD % &<CR>
+nnoremap <buffer> <F9> :w<CR>:!clear;python %<CR>
+nnoremap <buffer> <F2> :w<CR>:!clear;compileLaTeX main.tex<CR>
+noremap <leader>y "+y
