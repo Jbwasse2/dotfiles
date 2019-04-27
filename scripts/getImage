@@ -8,7 +8,7 @@ else
 fi
 GLOBAL_FIGURES=$(echo "$FIGURES" | sed 's/[][]//g' | sed 's/, /\n/g' | tr -d "'")
 CHOSEN_FIGURE=$(echo "$GLOBAL_FIGURES" | sed "s/.*\///" | sort -u |dmenu -p "Choose an image" -l 15)
-if [ -z "$var" ]
+if [ -z "$CHOSEN_FIGURE" ]
 then
   echo ""
 else
