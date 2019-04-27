@@ -27,7 +27,7 @@ connectToWifi - Interactive way to connect to the wifi
 
 printIRL - send a file to the printer through the terminal. Input should be file to print
 
-monitorOff - When using i3, if you disconnect from a monitor (physically) the i3wm will still have windows open for that monitor even though it isn't connected. This tells the X window system to turn off the other monitor through software. TODO: Make this script more flexible to not depend on the user changing this script to match their monitor 
+monitorOff - When using i3, if you disconnect from a monitor (physically) the i3wm will still have windows open for that monitor even though it isn't connected. This tells the X window system to turn off the other monitor through software.
 
 monitorOn - Similiarly, when you connect a monitor, i3wm/X will not immediately allow the user to work with the newly connected monitor. This script tells X to use the other monitor. TODO: Make this script more flexible to not depend on the user changing this script to match their monitor.
 
@@ -46,6 +46,14 @@ slideshow - Open a pdf as a slideshow. Input should be pdf to have as slideshow
 svgToPDF - Turn a .svg into a .pdf file. Input should be .svg file to be converted.
 
 installDEB - Installs .deb files, still need to test so may not be working... Input should be .deb file
+
+todo - Pulls up calcurse
+
+untargz - like unzip but for targz
+
+### Helper Scripts
+
+prompt - Creates a yes/no prompt with dmenu. First argument should be what the user is prompted with and second is what happens if the user selects "yes". For example I use this for shutting down my computer. "bindsym $mod+Shift+e exec ~/.scripts/prompt 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' 'i3-msg exit'"
 
 
 
