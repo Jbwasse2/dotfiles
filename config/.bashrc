@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -136,7 +136,7 @@ alias cpwd="pwd | xclip -selection clipboard"
 export LD_LIBRARY_PATH=/usr/local/cuda/lib
 export PATH=$PATH:/usr/local/cuda/bin
 source /opt/ros/kinetic/setup.bash
-#export PYTHONPATH=/opt/ros/kinetic/lib/python2.7/dist-packages:/home/justin/Documents/bouncy/self-assembly/dataAnalysis/src\n
+export PYTHONPATH=/opt/ros/kinetic/lib/python2.7/dist-packages:/home/justin/Documents/bouncy/self-assembly/dataAnalysis/src\n
 
 #Add pycharm
 export PATH="/home/justin/programs/pycharm-community-2018.3.4/bin/:$PATH"
@@ -151,3 +151,10 @@ alias class='cd /home/justin/Documents/class/2019sp'
 alias markov='cd /home/justin/Documents/MarkovChainAnalysis'
 #export PATH="~/anaconda3/bin:$PATH"
 export PATH="/home/justin/.scripts/:$PATH"
+#Add cdpath to cd into any ln
+export CDPATH=/home/justin/.scripts/ln/
+alias xclipc="xclip -sel clip"
+alias rm="rm -I"
+alias flex="screenfetch"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

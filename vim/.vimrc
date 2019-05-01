@@ -68,6 +68,16 @@ nnoremap <C-k> :tabnext<CR>
 
 let g:ranger_map_keys = 0
 map <leader>r : RangerNewTab<CR>
+
+set rtp+=~/.fzf
+Plugin 'junegunn/fzf' "File manager
+Plugin 'junegunn/fzf.vim' "File manager
+
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'w0rp/ale'
+"let g:ale_lint_on_text_changed = 'never'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -115,9 +125,21 @@ set statusline+=%F    "Show file name
 set spell spelllang=en_us "Set spell check to english
 set autoread
 
+" Turn on relative numbers
+:set relativenumber
+:set rnu
+
 " Toggle auto compiling of md
 map <leader>a :!setsid renderMD % &<CR>
 nnoremap <buffer> <F9> :w<CR>:!clear;python %<CR>
 nnoremap <buffer> <F2> :w<CR>:!clear;compileLaTeX main.tex<CR>
 noremap <leader>y "+y
 nnoremap <leader>f :read !getImage<CR>
+" Binding to open vim 
+nnoremap <leader>v :tabnew $MYVIMRC<CR>
+
+" Automatically source vimrc when changed
+autocmd BufWritePost .vimrc source $MYVIMRC
+" Bind key to open .bib
+nnoremap <leader>b :tabnew *.bib <CR>
+nnoremap <C-l> :Lines<CR>                                                                            

@@ -6,4 +6,5 @@ fi
 #I call it i flag for insert
 if [ "$1" == "-i" ]; then
     #TODO Allow for inserting of todos on the command line
+    echo "FOBAR"
 fi
