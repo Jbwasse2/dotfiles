@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ -n "$1" ]]; then
+    sudo mv "$1" /usr/local/share/fonts/
+else
+    for i in *.ttf; do
+        [ -f "$i" ] || break
+        sudo mv "$i" /usr/local/share/fonts/
+done
+fi
+
+sudo fc-cache -fv

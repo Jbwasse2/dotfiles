@@ -33,6 +33,7 @@ monitorOn - Similiarly, when you connect a monitor, i3wm/X will not immediately 
 
 compileLaTeX - When compiling bibs with PDFTex you need to also compile with bibtex and then pdfTex again and once more. This does that automatically. Input should be tex file to compile 
 
+installFonts - Install .ttf files. Input can be a specific .ttf file or just running this in the folder with many .ttf files will install them all.
 ### Stuff I Don't Feel Like Remembering
 
 renderMD - Renders a markdown file into a pdf and puts the render in a "PDF" folder. Input should be name of markdown
@@ -50,6 +51,8 @@ installDEB - Installs .deb files, still need to test so may not be working... In
 todo - Pulls up calcurse
 
 untargz - like unzip but for targz
+
+torrent - Given a .torrent file, torrent the file. Plz nothing illegal. Dont blame me if you do something illegal.
 
 ### Helper Scripts
 

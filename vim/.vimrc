@@ -143,3 +143,5 @@ autocmd BufWritePost .vimrc source $MYVIMRC
 " Bind key to open .bib
 nnoremap <leader>b :tabnew *.bib <CR>
 nnoremap <C-l> :Lines<CR>                                                                            
+"Create binding to find and open file in new tab
+nnoremap <C-f> :tabnew<CR>:Files<CR>

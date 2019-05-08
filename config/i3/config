@@ -34,7 +34,7 @@ bindsym $mod+Right focus right
 
 # screenshots
 #bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
-bindsym $mod+p exec gnome-screenshot -i;exec notify-send 'Screenshot Taken!'
+bindsym $mod+p exec gnome-screenshot -i
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -223,7 +223,7 @@ exec_always --no-startup-id /$HOME/.config/polybar/i3wmthemer_bar_launch.sh
 
 # Theme colors
 client.focused #b0c4bb #2f2f38 #b0c4bb #81a2be #ff0000
-client.focused_inactive #b0c4bb #2f2f38 #b0c4bb #688486 #688486
+client.focused_inactive #b0c4bb #2f2f38 #b0c4bb #688486 #2f2f38
 client.unfocused #b0c4bb #2f2f38 #b0c4bb #688486 #2f2f38
 client.urgent #b0c4bb #2f2f38 #b0c4bb #688486 #688486
 client.placeholder #b0c4bb #2f2f38 #b0c4bb #688486 #688486
@@ -284,7 +284,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 # Move stuff 
 assign [class="Slack"] $ws8
-assign [class="Spotify"] $ws8
+assign [class="Spotify"] $ws7
 
 # Custom Scripts
 exec ~/.scripts/shuffleBGLoop
@@ -293,8 +293,11 @@ exec redshift
 exec /home/justin/spotify/spotify
 # Start Slack
 exec /usr/bin/slack
+# Start Spotify
+exec /usr/bin/spotify
 # Start Bluetooth
-exec /usr/bin/blueman-manager'
+exec /usr/bin/blueman-manager
 exec touchpad-indicator
+exec syncthing
 
 exec /usr/bin/indicator-sound-switcher
