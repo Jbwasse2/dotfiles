@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
+#Check that sudo privledge is met otherwise request sudo passwd
+[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 #Network Manager Mommand Line Interface DEvice WIFI
 nmcli dev wifi | head -15
 
 SSID=$(sudo iwlist wlp4s0 scan | grep SSID | sed 's/[^"]*"\([^"]*\)".*/\1/' | grep . | grep -v "x00"| sort -u | dmenu -l 15)
+echo "Please enter Password"
+read -s PASSWORD
 
-nmcli device wifi connect "$SSID"
+nmcli device wifi connect "$SSID" password $PASSWORD
 
 

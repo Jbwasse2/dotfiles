@@ -159,3 +159,5 @@ alias flex="screenfetch"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 alias gimp="snap run gimp"
+conda activate snakes37
+inkscape-figures watch &>/dev/null

@@ -19,7 +19,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec rofi -show run -line 3 -eh 2 -width 25 -padding 40 -opacity "75" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -font "Inconsolata 9"
 
 # change focus
 bindsym $mod+h focus left
@@ -231,8 +231,8 @@ client.placeholder #b0c4bb #2f2f38 #b0c4bb #688486 #688486
 client.background #2f2f38
 
 # Gaps
-gaps inner 50
-gaps outer 20
+gaps inner 15
+gaps outer 15
 
 smart_gaps on
 
@@ -285,19 +285,21 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 # Move stuff 
 assign [class="Slack"] $ws8
 assign [class="Spotify"] $ws7
+assign [class="inkscape"] $ws3
+assign [class="zotero"] $ws7
 
 # Custom Scripts
 exec ~/.scripts/shuffleBGLoop
 exec redshift
 # Start Spotify
-exec /home/justin/spotify/spotify
+#exec /home/justin/spotify/spotify
 # Start Slack
 exec /usr/bin/slack
 # Start Spotify
-exec /usr/bin/spotify
+#exec /usr/bin/spotify
 # Start Bluetooth
 exec /usr/bin/blueman-manager
 exec touchpad-indicator
-exec syncthing
+#exec syncthing
 
 exec /usr/bin/indicator-sound-switcher

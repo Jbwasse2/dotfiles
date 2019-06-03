@@ -13,6 +13,12 @@ MAIN_SCREEN_RES=1920
 RESOLUTION1="$(xrandr | grep -w -A1 'connected' | sed '/eDP/,+2d' | sed -n 2p | grep -o -E '[0-9]+' | sed -n 1p)"
 RESOLUTION2="$(xrandr | grep -w -A1 'connected' | sed '/eDP/,+2d' | sed -n 2p | grep -o -E '[0-9]+' | sed -n 2p)"
 MONITOR_NAME="$(xrandr | grep -w 'connected' | grep -v 'eDP' | awk '{print $1}')"
-xrandr --output $MONITOR_NAME --mode "$RESOLUTION1"x"$RESOLUTION2" --pos 1920x0
+if [ -z "$MONITOR_NAME" ]; then
+    echo "No Monitor Name Found!"
+elif [ -z "$RESOLUTION1" ] || [ -z "$RESOLUTION2" ]; then
+    echo "No Resolution Found!"
+else
+    xrandr --output $MONITOR_NAME --mode "$RESOLUTION1"x"$RESOLUTION2" --pos 1920x0
+fi
 
 
