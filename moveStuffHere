@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 cp ~/.bashrc ./config/
+cp ~/.Xresources ./config/
+cp ~/.Xdefaults ./config/
+
 
 #Copy scripts over
 cp -rf ~/.scripts/* ./scripts/

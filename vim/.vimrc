@@ -54,7 +54,7 @@ Plugin 'chrisbra/Recover.vim'
 
 "Shows tag differences
 Plugin 'majutsushi/tagbar'
-"nmap <F6> :TagbarToggle<CR>
+map <C-m> :TagbarToggle<CR>
 
 " Autocomplete in python
 "Plugin 'davidhalter/jedi-vim'
@@ -64,6 +64,7 @@ Plugin 'vim-airline/vim-airline-themes'
 "set t_Co=256
 " Dracula color theme
 Plugin 'dracula/vim'
+
 
 Plugin 'xuhdev/vim-latex-live-preview'
 let g:livepreview_previewer = 'zathura'
@@ -127,6 +128,7 @@ set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+set autochdir           " CD to whats being worked on
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 set foldenable          " enable folding
@@ -155,7 +157,7 @@ nnoremap k gk
 let g:log_open = 0
 map <leader>a :!setsid renderMD % &<CR>
 map <F7> :w<CR>:!clear;python %<CR>
-map <F9> :let g:file_name=@%<CR>:call F8Helper()<CR>:set splitbelow<CR>:new .log<CR>:!>.log<CR>:e<CR>:execute 'read !python ' . g:file_name<CR>:w<CR>:resize 10<CR>:call MyFeedKeysEditor()<CR><CR>
+map <F9> :let g:file_name=@%<CR>:call GetExtension()<CR>:call F8Helper()<CR>:set splitbelow<CR>:new .log<CR>:!>.log<CR>:e<CR>:call RunStuff()<CR>:w<CR>:resize 10<CR>:call MyFeedKeysEditor()<CR><CR>
 "map <F8> :call F8Helper()<CR>:set splitbelow<CR>:new .log<CR>:!>.log<CR>:e<CR>:read !python master.py<CR>:w<CR>:resize 10<CR>:let g:log_open=1<CR>:call MyFeedKeysEditor()<CR><CR>
 map <F6> :call OpenLog()<CR><CR>:call MyFeedKeysEditor()<CR><CR>
 map <F2> :w<CR>:!clear;compileLaTeX master.tex<CR>
@@ -239,8 +241,8 @@ nnoremap <S-j> :tabprevious<CR>
 nnoremap <S-Right> :tabnext<CR>
 nnoremap <S-k> :tabnext<CR>
 "Get rid of ugly bars
-set fillchars+=vert:\
-"hi VertSplit guibg=bg guifg=bg
+set fillchars=vert:\ 
+"hi VertSplit guibg=NONE guifg=NONE
 
 
 if exists('*OpenLog')
@@ -254,9 +256,11 @@ function! OpenLog()
         :resize 10
         :echo "Opening Log"
     else
+        :setl noea
         :call MyFeedKeys()
         :wq
         :echo "Closing Log"
+        :setl ea
     endif
 endfunction
 
@@ -275,6 +279,38 @@ function! F8Helper()
     endif
 endfunction
 
+function! GetExtension()
+    :let g:extension=expand('%:e')
+endfunction
+
+function! RunStuff()
+    :if g:extension =~ 'sh'
+    :   execute 'read !bash ' . g:file_name
+    :   echo "Setting script"
+    :elseif g:extension =~ 'py'
+    :   execute 'read !python ' . g:file_name
+    :   echo "Setting Python"
+    :else
+    :   echo "No Make Made For This File Type!"
+    :endif
+endfunction
+
+
+"Sets makeprg automatically
+"Will finish eventually
+function! SetMakePrg()
+    :let extension=expand('%:e')
+    :if extension =~ 'sh'
+    :   set makeprg=bash\ %
+    :   echo "Setting script"
+    :elseif extension =~ 'py'
+    :   set makeprg=python\ %
+    :   echo "Setting Python"
+    :else
+    :   echo "No Make Made For This File Type!"
+    :endif
+endfunction
+
 
 function! CheckBottom()
     "Move Up
@@ -283,28 +319,6 @@ function! CheckBottom()
     "Yes if 1 window
     "No if 2 window
     let g:log_open=winnr() != winnr('100j')
-endfunction
-
-
-"Checks to see if a log is open by seeing if window can move to bottom and be
-"only one
-function! CheckBottom2()
-    "Get window number of top
-    :let winnum=winnr('100k')
-    "Get window layout for top
-    :let toplayout=winlayout(winnum)
-    "If it has "col" in it then log is open, otherwise it isnt.
-    :let g:log_open=0
-	:for item in toplayout
-    "1 is a string type
-    :   if type(item) != 1
-    :       continue
-    :   endif
-	:   if item =~ "col"
-    :       let g:log_open=1
-    :       break
-    :   endif
-	:endfor
 endfunction
 
 
